@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tạo Link Shopee Affiliate</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#ffe2d2;
+padding:40px;
+text-align:center;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:400px;
+margin:auto;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+background:#ff5722;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+}
+
+.result{
+margin-top:15px;
+word-break:break-all;
+}
+
+.copy{
+background:#2196f3;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Tạo Link Shopee</h2>
+
+<input id="link" placeholder="Dán link Shopee vào đây">
+
+<button onclick="createLink()">Tạo Link</button>
+
+<div class="result" id="result"></div>
+
+<button class="copy" onclick="copyLink()">Copy Link</button>
+
+</div>
+
+<script>
+
+let finalLink="";
+
+function createLink(){
+
+let link = document.getElementById("link").value;
+
+let affiliate="17302230441";
+
+finalLink="https://s.shopee.vn/an_redir?origin_link="
++ encodeURIComponent(link)
++ "&affiliate_id=" + affiliate;
+
+document.getElementById("result").innerHTML=finalLink;
+
+}
+
+function copyLink(){
+
+navigator.clipboard.writeText(finalLink);
+
+alert("Đã copy link");
+
+}
+
+</script>
+
+</body>
+</html>
